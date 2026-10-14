@@ -8,9 +8,9 @@ def student_club(e):
     student_first = document.getElementById('first_name').value
     student_last = document.getElementById('last_name').value
 
-    first_accepted = ['Mari'+'Kamimori', 'Suhan'+'Holic', 'Kuma'+'Teruhashi', 'Yang'+'De Fontaine', 'Cassiel'+'Doctor', 'Yll'+'Mao']
+    acceptedmembers = ['Mari'+'Kamimori', 'Suhan'+'Holic', 'Kuma'+'Teruhashi', 'Yang'+'De Fontaine', 'Cassiel'+'Doctor', 'Yll'+'Mao']
 
-    output1 = student_first + student_last in first_accepted
+    output1 = student_first + student_last in acceptedmembers
 
     # Displayed Message (Output)
     display_message = (f'Sorry, you are not part of the list.', f'Congratulations, you are qualified for the philosophy and psychology club!')
