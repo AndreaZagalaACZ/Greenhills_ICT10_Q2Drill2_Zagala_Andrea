@@ -1,1 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <title>Seatwork #1</title>
+    <style>
+        body {
+            background-image:
+                radial-gradient(circle at top left, #fff0f5, transparent 40%),
+                radial-gradient(circle at bottom right, #f1e6ff, transparent 45%),
+                linear-gradient(135deg, #fff8fb, #fce4ec, #f7efff);
+            background-size: cover;
+            background-size: 150%, 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+            color: #6d4357;
+            margin: 0;
+            padding: 70px 20px;
+            min-height: 100vh;
+            box-sizing: border-box;
+            text-align: center;
+        }
 
+        h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 42px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            color: #b45f83;
+            margin-bottom: 18px;
+            text-shadow: 2px 2px 0px #ffffff;
+        }
+
+        h2::before {
+            content: "♡ ";
+            color: #d98bad;
+        }
+
+        h2::after {
+            content: " ♡";
+            color: #d98bad;
+        }
+
+        p {
+            max-width: 570px;
+            margin: 0 auto 30px;
+            padding: 22px 28px;
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid #f1c8d9;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(190, 117, 151, 0.10);
+            color: #79566b;
+            font-size: 15px;
+            line-height: 1.9;
+            letter-spacing: 0.3px;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        div:has(#first_name) {
+            max-width: 390px;
+            margin: 0 auto;
+            padding: 32px 25px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid #efc6d8;
+            border-radius: 25px;
+            box-shadow: 0 12px 35px rgba(180, 95, 131, 0.14);
+            position: relative;
+        }
+
+        div:has(#first_name)::before {
+            content: "✧  KNOW THYSELF  ✧";
+            display: block;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #c27b9a;
+            margin-bottom: 24px;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 310px;
+            padding: 13px 18px;
+            margin: 8px 0;
+            border: 1.5px solid #e7b5ca;
+            border-radius: 14px;
+            text-align: center;
+            background: #fff9fc;
+            color: #79566b;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(180, 95, 131, 0.05);
+        }
+
+        input::placeholder {
+            color: #c69bad;
+        }
+
+        input:focus {
+            border-color: #c77da0;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(231, 181, 202, 0.25);
+            transform: translateY(-2px);
+        }
+
+        input[type="button"] {
+            width: auto;
+            min-width: 150px;
+            margin-top: 20px;
+            padding: 13px 35px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #d88eaf, #b779a7);
+            color: white;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 15px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(183, 121, 167, 0.28);
+            transition: all 0.3s ease;
+        }
+
+        input[type="button"]:hover {
+            background: linear-gradient(135deg, #c77da0, #a56d9b);
+            box-shadow: 0 9px 20px rgba(183, 121, 167, 0.35);
+            transform: translateY(-3px);
+        }
+
+        input[type="button"]:active {
+            transform: translateY(0);
+        }
+
+        #output {
+            max-width: 390px;
+            box-sizing: border-box;
+            margin: 25px auto 0;
+            padding: 18px 22px;
+            background: rgba(255, 230, 240, 0.85) !important;
+            border: 1px solid #edbfd3;
+            border-radius: 18px;
+            color: #794b64;
+            font-size: 15px;
+            line-height: 1.8;
+            box-shadow: 0 6px 20px rgba(180, 95, 131, 0.10);
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 45px 18px;
+            }
+
+            h2 {
+                font-size: 30px;
+                letter-spacing: 1px;
+            }
+
+            p {
+                padding: 18px;
+                font-size: 14px;
+            }
+
+            div:has(#first_name) {
+                padding: 25px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Psychosophy Club</h2>
+    <p>Welcome to the Psychosophy club! We talk about philosophy and psychology. Please enter your first and last name to check if you are qualified.</p>
+    <div>
+        <input type="text" id="first_name" placeholder="Enter your First Name"><br>
+        <input type="text" id="last_name" placeholder="Enter your Last First Name"><br>
+        <input type="button" py-click="student_club" value="Enter"><br>
+    </div>
+    <div id="output" style="background-color: pink"></div>
+    <py-script src="main.py"></py-script>
+</body>
+</html>
