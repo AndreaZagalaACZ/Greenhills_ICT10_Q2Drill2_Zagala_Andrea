@@ -13,9 +13,8 @@ def student_club(e):
 
     member_checker1 = student_first in first_accepted
     member_checker2 = student_last in last_accepted
-    member_checker3 = member_checker1 + member_checker2 + member_checker1
 
     # Displayed Message (Output)
     display_message = (f'Sorry, you are not part of the list.', f'Congratulations, you are qualified for the philosophy and psychology club!')
 
-    display(display_message[member_checker3], target='output')
+    display(display_message[member_checker1 + member_checker2], target='output')
